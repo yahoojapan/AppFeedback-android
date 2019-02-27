@@ -33,6 +33,7 @@ public class AppFeedback {
      * Set slack api url
      */
     public static String getSlackexApiUrl() {
+        return "";
     }
 
     /**
