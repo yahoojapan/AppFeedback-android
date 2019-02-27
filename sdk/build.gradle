@@ -2,20 +2,8 @@ apply plugin: 'com.android.library'
 apply plugin: 'maven'
 apply plugin: 'jacoco'
 
-// getPublishTypeの使い方のイメージ
-// ./gradlew clean assembleDebug :uploadArchives -PpublishType='debug'
-// ./gradlew clean assembleRelease :uploadArchives -PpublishType='release'
-ext.getPublishType = {
-    def publishType = 'release'
-
-    if (project.hasProperty('publishType')) {
-        publishType = project.getProperties().get('publishType')
-    } else {
-        println 'WARNING no publish type has been specified.'
-    }
-
-    return publishType
-}
+apply plugin: 'com.github.dcendents.android-maven'
+group = 'com.github.USERNAME.REPO'
 
 android {
     compileSdkVersion 27
@@ -82,50 +70,4 @@ dependencies {
     // アーカイブ用
     archives "org.apache.maven.wagon:wagon-ssh-external:2.9"
     debugImplementation 'com.android.support:support-v4:27.+'
-}
-
-/** ---------------- デプロイ ---------------- */
-// 本番デプロイ前の確認事項
-// 1. isSnapShotはfalseになっているか？
-// 2. base_versionは正しいか？
-// 3. /version は正しいか？
-def isSnapShot = false // 試験的にリリースする場合はこちらをtrueに
-def publishType = getPublishType().toString()
-def base_version  = '1.3' // FixされているMajor/Minor version
-def build_version = file('../version').text
-
-group = 'jp.co.yahoo.appfeedback'
-version = base_version + '.' + (build_version ? "$build_version" : '0') + (isSnapShot ? '-SNAPSHOT' : '')
-
-uploadArchives {
-    if (isSnapShot) {
-        println "Upload archives as SNAPSHOT"
-    } else {
-        println "Upload archives as LIBRARY"
-    }
-
-    def suffix = publishType == 'release' ? '-no-op' : ''
-    def artifactId = 'appfeedback-sdk' + suffix
-
-    println "Group: $group"
-    println "Version: $version"
-    println "ArtifactId: $artifactId"
-
-    repositories.mavenDeployer {
-        configuration = configurations.archives
-
-        repository(url: "scpexe://...")
-        snapshotRepository(url: "scpexe://...")
-
-        pom.artifactId = artifactId
-        pom.project {
-            description 'AppFeedback SDK for Android applications'
-            packaging 'aar'
-        }
-
-        //パーミッションのチェックにsupport-v4を使用しますが、dependencies listからは排除します
-        //このようにしないとユーザーが好きなバージョンのsupport-v4を使用することができなくなります
-        //このやりかたはスタンダードです https://github.com/bumptech/glide/blob/04b829d27c16f87dbcaa55469be445e697e514fa/library/build.gradle#L150
-        pom.dependencies = pom.dependencies.findAll { dep -> dep.artifactId != "support-v4" }
-    }
 }

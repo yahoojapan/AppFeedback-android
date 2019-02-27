@@ -6,6 +6,9 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.3.1'
         classpath "com.dicedmelon.gradle:jacoco-android:0.1.1"
+
+        // https://github.com/dcendents/android-maven-gradle-plugin#note-on-releases
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0' 
     }
 }
 
