@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:useLevel="true"
+    android:innerRadiusRatio="2.3"
+    android:shape="ring"
+    android:thickness="3dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/appfeedback_white" />
+</shape>
+
+<!-- android:innerRadiusRatio="3" -->

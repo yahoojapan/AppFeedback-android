@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="false">
+        <shape android:shape="oval">
+            <solid android:color="@color/appfeedback_primary"></solid>
+            <stroke
+                android:color="@color/appfeedback_white"
+                android:width="1dp"/>
+        </shape>
+    </item>
+    <item android:state_pressed="true">
+        <shape android:shape="oval">
+            <solid android:color="@color/appfeedback_primary_dark"></solid>
+            <stroke
+                android:color="@color/appfeedback_white"
+                android:width="1dp"/>
+        </shape>
+    </item>
+</selector>

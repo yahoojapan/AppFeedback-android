@@ -1,0 +1,131 @@
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+apply plugin: 'jacoco'
+
+// getPublishTypeの使い方のイメージ
+// ./gradlew clean assembleDebug :uploadArchives -PpublishType='debug'
+// ./gradlew clean assembleRelease :uploadArchives -PpublishType='release'
+ext.getPublishType = {
+    def publishType = 'release'
+
+    if (project.hasProperty('publishType')) {
+        publishType = project.getProperties().get('publishType')
+    } else {
+        println 'WARNING no publish type has been specified.'
+    }
+
+    return publishType
+}
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion System.getenv('BUILD_TOOL_DEFAULT') ?: '28.0.3'
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        // trueだと ./gradlew :uploadArchives 以下のエラーが発生
+        // Could not write to file '..../sdk/build/poms/pom-default.xml'
+        // 解答 https://stackoverflow.com/questions/44405942/could-not-write-to-file-pom-xml-android
+        // multiDexEnabled false
+    }
+
+    dexOptions {
+        preDexLibraries = false
+    }
+
+    buildTypes {
+        debug {
+            // jacocoがバグって起動しないため外す
+            // https://stackoverflow.com/questions/39195754/java-lang-noclassdeffounderror-failed-resolution-of-lorg-jacoco-agent-rt-inter
+            // testCoverageEnabled = true
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    testOptions {
+        unitTests.all {
+            jacoco {
+                includeNoLocationClasses = true
+            }
+        }
+    }
+
+    // publishNonDefault は　Android gradle plugin 3.0 で deprecate された
+    // publishNonDefault true
+    defaultPublishConfig getPublishType().toString()
+}
+
+/** ---------------- 依存ライブラリ ----------- */
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    // サポートライブラリ
+    // ローカルユニットテスト用
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.jmockit:jmockit:1.21'
+    testImplementation 'org.powermock:powermock-module-junit4:1.6.5'
+    testImplementation 'org.powermock:powermock-api-mockito:1.6.5'
+    // インストルメンテーションテスト用
+    androidTestImplementation 'junit:junit:4.12'
+    androidTestImplementation 'org.mockito:mockito-core:2.7.5'
+    androidTestImplementation 'com.google.dexmaker:dexmaker:1.2'
+    androidTestImplementation 'com.google.dexmaker:dexmaker-mockito:1.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    // アーカイブ用
+    archives "org.apache.maven.wagon:wagon-ssh-external:2.9"
+    debugImplementation 'com.android.support:support-v4:27.+'
+}
+
+/** ---------------- デプロイ ---------------- */
+// 本番デプロイ前の確認事項
+// 1. isSnapShotはfalseになっているか？
+// 2. base_versionは正しいか？
+// 3. /version は正しいか？
+def isSnapShot = false // 試験的にリリースする場合はこちらをtrueに
+def publishType = getPublishType().toString()
+def base_version  = '1.3' // FixされているMajor/Minor version
+def build_version = file('../version').text
+
+group = 'jp.co.yahoo.appfeedback'
+version = base_version + '.' + (build_version ? "$build_version" : '0') + (isSnapShot ? '-SNAPSHOT' : '')
+
+uploadArchives {
+    if (isSnapShot) {
+        println "Upload archives as SNAPSHOT"
+    } else {
+        println "Upload archives as LIBRARY"
+    }
+
+    def suffix = publishType == 'release' ? '-no-op' : ''
+    def artifactId = 'appfeedback-sdk' + suffix
+
+    println "Group: $group"
+    println "Version: $version"
+    println "ArtifactId: $artifactId"
+
+    repositories.mavenDeployer {
+        configuration = configurations.archives
+
+        repository(url: "scpexe://...")
+        snapshotRepository(url: "scpexe://...")
+
+        pom.artifactId = artifactId
+        pom.project {
+            description 'AppFeedback SDK for Android applications'
+            packaging 'aar'
+        }
+
+        //パーミッションのチェックにsupport-v4を使用しますが、dependencies listからは排除します
+        //このようにしないとユーザーが好きなバージョンのsupport-v4を使用することができなくなります
+        //このやりかたはスタンダードです https://github.com/bumptech/glide/blob/04b829d27c16f87dbcaa55469be445e697e514fa/library/build.gradle#L150
+        pom.dependencies = pom.dependencies.findAll { dep -> dep.artifactId != "support-v4" }
+    }
+}

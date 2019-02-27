@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="jp.co.yahoo.appfeedback.core.DrawActivity">
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingTop="16dp"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp"
+        android:paddingBottom="58dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="25dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/drawViewLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="41dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/close"
+            style="@style/appfeedback_bottom_button"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:onClick="close"
+            android:text="@string/appfeedback_draw_close" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="@color/appfeedback_white" />
+
+        <Button
+            android:id="@+id/clearButton"
+            style="@style/appfeedback_bottom_button"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:onClick="clear"
+            android:text="@string/appfeedback_draw_clear" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="@color/appfeedback_white" />
+
+        <Button
+            android:id="@+id/save"
+            style="@style/appfeedback_bottom_button"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:onClick="save"
+            android:text="@string/appfeedback_draw_save" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,50 @@
+<resources>
+    <string name="appfeedback_app_name">Appfeedback SDK</string>
+
+    <string name="appfeedback_api_dev">http://dev-api-%d.appfeedback.dev01.ssk.cfm.yahoo.co.jp/</string>
+    <string name="appfeedback_api_alpha">https://api-alpha.appfeedback.corp.yahoo.co.jp/</string>
+    <string name="appfeedback_api_internal">https://api.appfeedback.corp.yahoo.co.jp/</string>
+    <string name="appfeedback_api_external">https://api-appfeedback.yahoo.co.jp/</string>
+
+    <string name="appfeedback_feedback">Feedback</string>
+    <string name="appfeedback_feedback_recording">撮影中</string>
+    <string name="appfeedback_feedback_description">フィードバック送信</string>
+    <string name="appfeedback_feedback_title">タイトル(必須)</string>
+    <string name="appfeedback_feedback_comment">コメント(必須)</string>
+    <string name="appfeedback_feedback_id">アカウント名(必須)</string>
+    <string name="appfeedback_feedback_post">送信</string>
+    <string name="appfeedback_feedback_cancel">キャンセル</string>
+    <string name="appfeedback_feedback_empty_title">タイトルが入力されていません</string>
+    <string name="appfeedback_feedback_empty_comment">コメントが入力されていません</string>
+    <string name="appfeedback_feedback_empty_id">アカウント名が入力されていません</string>
+    <string name="appfeedback_feedback_empty_screenshot">スクリーンショットが\nありません</string>
+    <string name="appfeedback_feedback_screenshot">スクリーンショット</string>
+    <string name="appfeedback_feedback_select_screenshot">写真から選択</string>
+    <string name="appfeedback_feedback_screen_record">キャプチャ開始</string>
+    <string name="appfeedback_feedback_screen_record_show_tap_view">タップ位置の表示</string>
+    <string name="appfeedback_feedback_send_id_on">アカウント名の送信</string>
+    <string name="appfeedback_feedback_edit_image">画像編集</string>
+
+    <string name="appfeedback_feedback_slack_channel">%sに送信しました</string>
+    <string name="appfeedback_feedback_slack_error">Slack API Error: %s</string>
+    <string name="appfeedback_feedback_internal_server_error">不明なエラーです(ステータスコード: %d)</string>
+
+    <string name="appfeedback_notification_title">フィードバック機能</string>
+    <string name="appfeedback_notification_mode_on">タッチしてFB機能をON</string>
+    <string name="appfeedback_notification_mode_off">タッチしてFB機能をOFF</string>
+
+    <string name="appfeedback_dialog_title">動画キャプチャを開始します</string>
+    <string name="appfeedback_dialog_message">画面の録画を開始します。\n撮影時間は最大30秒です。\nフィードバックアイコンをタップすることで途中で録画を停止することもできます。\n</string>
+    <string name="appfeedback_dialog_start">開始</string>
+    <string name="appfeedback_dialog_cancel">キャンセル</string>
+    <string name="appfeedback_dialog_confirm">今後確認しない</string>
+
+    <string name="appfeedback_draw_save">保存</string>
+    <string name="appfeedback_draw_clear">クリア</string>
+    <string name="appfeedback_draw_close">キャンセル</string>
+
+    <string name="appfeedback_draw_tutorial_title">使い方</string>
+    <string name="appfeedback_draw_tutorial_message">キャプチャ画像の上をスワイプすることで強調線を描画できます。\nクリアボタンをタップすると描画した強調線を全て削除します。</string>
+    <string name="appfeedback_draw_tutorial_confirm">今後表示しない</string>
+    <string name="appfeedback_draw_tutorial_close">閉じる</string>
+</resources>
