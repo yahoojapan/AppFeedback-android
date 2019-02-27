@@ -49,7 +49,7 @@ android {
 
     // publishNonDefault は　Android gradle plugin 3.0 で deprecate された
     // publishNonDefault true
-    defaultPublishConfig getPublishType().toString()
+    defaultPublishConfig "debug"
 }
 
 /** ---------------- 依存ライブラリ ----------- */
