@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="appfeedback_text_box">
+        <item name="android:textColor">@color/appfeedback_dark_gray</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:gravity">left|top</item>
+        <item name="android:paddingLeft">7dp</item>
+        <item name="android:paddingRight">7dp</item>
+        <item name="android:paddingBottom">7dp</item>
+        <item name="android:paddingTop">7dp</item>
+        <item name="android:cacheColorHint">@color/appfeedback_dark_gray</item>
+        <item name="android:background">@drawable/appfeedback_textbox_background</item>
+    </style>
+
+    <style name="appfeedback_basic_button">
+        <item name="android:background">@drawable/appfeedback_bottom_button</item>
+        <item name="android:textColor">@color/appfeedback_white</item>
+    </style>
+
+    <style name="appfeedback_bottom_button" parent="appfeedback_basic_button">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+</resources>

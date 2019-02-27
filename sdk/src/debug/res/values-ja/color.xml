@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="appfeedback_white">#FFFFFF</color>
+    <color name="appfeedback_white_transparent">#55FFFFFF</color>
+    <color name="appfeedback_primary_light">#2244C4B6</color>
+    <color name="appfeedback_primary">#44C4B6</color>
+    <color name="appfeedback_primary_dark">#52b49c</color>
+    <color name="appfeedback_light_gray">#cccccc</color>
+    <color name="appfeedback_super_light_gray">#eeeeee</color>
+    <color name="appfeedback_dark_gray">#292929</color>
+    <color name="appfeedback_recording">#aae74c3c</color>
+    <color name="appfeedback_recording_dark">#aac52a1a</color>
+
+    <color name="appfeedback_tap_view_solid">#eeffffff</color>
+    <color name="appfeedback_tap_view_stroke">#eecccccc</color>
+</resources>

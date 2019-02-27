@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jp.co.yahoo.appfeedback.views.MovableFrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/appfeedback_fb_clip_width"
+    android:layout_height="@dimen/appfeedback_fb_clip_height">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal|center_vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/appfeedback_icon_shadow" />
+
+        <FrameLayout
+            android:id="@+id/appfeedback_clip_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/appfeedback_clip">
+
+            <ProgressBar
+                android:id="@+id/appfeedback_clip_progress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:max="300"
+                android:progress="0"
+                android:progressDrawable="@drawable/appfeedback_progress_circle"
+                android:rotation="-90"/>
+
+            <ImageView
+                android:id="@+id/appfeedback_clip_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="8.5dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/appfeedback_icon" />
+        </FrameLayout>
+    </FrameLayout>
+</jp.co.yahoo.appfeedback.views.MovableFrameLayout>

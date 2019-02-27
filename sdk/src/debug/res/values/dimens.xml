@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="appfeedback_fb_clip_width">62dp</dimen>
+    <dimen name="appfeedback_fb_clip_height">62dp</dimen>
+    <dimen name="appfeedback_tap_view_width">22dp</dimen>
+    <dimen name="appfeedback_tap_view_height">22dp</dimen>
+</resources>

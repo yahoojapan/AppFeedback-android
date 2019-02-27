@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Sample App</string>
+
+    <string name="description">
+        Sample app for AppFeedback SDK
+    </string>
+
+    <string name="web_activity">Show webView</string>
+
+    <string name="next_activity">Next page</string>
+
+    <string name="second_activity">Second page</string>
+
+    <string name="show_dialog">Show dialog</string>
+
+    <string name="error">Crash!</string>
+
+</resources>

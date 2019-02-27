@@ -1,0 +1,23 @@
+default_platform :android
+
+platform :android do
+  before_all do |lane, options|
+  end
+
+  lane :pr do
+    build_sample_app
+  end
+
+  desc "Build & Upload sample app"
+  private_lane :build_sample_app do
+    gradle(task: 'testDebugUnitTest')
+    gradle(task: 'assembleDebug')
+    gradle(task: 'assembleRelease')
+  end
+
+  desc "upload to maven repository"
+  lane :upload_archives do
+    gradle(task: 'uploadArchives', properties: { publishType: 'release' })
+    gradle(task: 'uploadArchives', properties: { publishType: 'debug' })
+  end
+end

@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ProgressBar
+        android:id="@+id/appfeedback_feedback_progressbar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:visibility="invisible"
+        android:layout_gravity="center_horizontal|center_vertical"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/appfeedback_white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            android:paddingBottom="12dp"
+            android:paddingTop="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:text="@string/appfeedback_feedback_description"
+                android:textColor="@color/appfeedback_primary"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/appfeedback_bar_shadow" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_marginTop="10dp"
+                android:clickable="true"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/appfeedback_feedback_title"
+                    style="@style/appfeedback_text_box"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:hint="@string/appfeedback_feedback_title"
+                    android:inputType="text"
+                    android:lines="1" />
+
+                <EditText
+                    android:id="@+id/appfeedback_feedback_comment"
+                    style="@style/appfeedback_text_box"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:hint="@string/appfeedback_feedback_comment"
+                    android:minHeight="80dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="300dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:id="@+id/appfeedback_feedback_image_frame"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="5dp">
+
+                            <TextView
+                                android:id="@+id/appfeedback_feedback_empty_screenshot"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical|center_horizontal"
+                                android:gravity="center_horizontal"
+                                android:text="@string/appfeedback_feedback_empty_screenshot"
+                                android:textColor="@color/appfeedback_dark_gray"
+                                android:textSize="12sp"
+                                android:visibility="invisible" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/appfeedback_feedback_image"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:scaleType="fitCenter" />
+
+                            </LinearLayout>
+
+                            <VideoView
+                                android:id="@+id/appfeedback_feedback_video_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" />
+
+                            <ImageView
+                                android:id="@+id/edit_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/appfeedback_icon"
+                                android:visibility="invisible" />
+
+                            <LinearLayout
+                                android:id="@+id/drawViewLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:orientation="horizontal"></LinearLayout>
+
+                            <ImageButton
+                                android:id="@+id/appfeedback_feedback_remove_image"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_gravity="right|top"
+                                android:background="@drawable/appfeedback_round_button"
+                                android:onClick="removeScreenshot"
+                                android:padding="7dp"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/appfeedback_icon_clear"
+                                android:tint="@color/appfeedback_white"
+                                android:visibility="invisible" />
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginBottom="20dp"
+                            android:layout_marginTop="10dp"
+                            android:text="@string/appfeedback_feedback_screenshot"
+                            android:textColor="@color/appfeedback_light_gray"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="160dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="10dp"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/appfeedback_feedback_username"
+                            style="@style/appfeedback_text_box"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginBottom="10dp"
+                            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-"
+                            android:hint="@string/appfeedback_feedback_id"
+                            android:inputType="text"
+                            android:lines="1"
+                            android:textSize="12sp" />
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/appfeedback_primary_button"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:onClick="selectScreenshot"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp">
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:layout_gravity="left|center_vertical"
+                                android:layout_marginLeft="8dp"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/appfeedback_icon_folder"
+                                android:tint="@color/appfeedback_primary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="left|center_vertical"
+                                android:layout_marginLeft="35dp"
+                                android:text="@string/appfeedback_feedback_select_screenshot"
+                                android:textColor="@color/appfeedback_primary"
+                                android:textSize="14sp" />
+
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:id="@+id/appfeedback_feedback_recording_mode"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginBottom="8dp"
+                            android:background="@drawable/appfeedback_primary_button"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:onClick="startRecording"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_gravity="left|center_vertical"
+                                android:layout_marginLeft="8dp"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/appfeedback_icon_video"
+                                android:tint="@color/appfeedback_primary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="left|center_vertical"
+                                android:layout_marginLeft="35dp"
+                                android:text="@string/appfeedback_feedback_screen_record"
+                                android:textColor="@color/appfeedback_primary"
+                                android:textSize="14sp" />
+
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:id="@+id/appfeedback_image_editing_mode"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginBottom="8dp"
+                            android:background="@drawable/appfeedback_primary_button"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:onClick="startEditing"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_gravity="left|center_vertical"
+                                android:layout_marginLeft="8dp"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/appfeedback_icon_drawing"
+                                android:tint="@color/appfeedback_primary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="left|center_vertical"
+                                android:layout_marginLeft="35dp"
+                                android:text="@string/appfeedback_feedback_edit_image"
+                                android:textColor="@color/appfeedback_primary"
+                                android:textSize="14sp" />
+
+                        </FrameLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <Button
+                style="@style/appfeedback_bottom_button"
+                android:onClick="close"
+                android:text="@string/appfeedback_feedback_cancel" />
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/appfeedback_white" />
+
+            <Button
+                style="@style/appfeedback_bottom_button"
+                android:onClick="send"
+                android:text="@string/appfeedback_feedback_post" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>
