@@ -31,13 +31,6 @@ android {
         }
     }
 
-    test {
-        reports {
-            junitXml.enabled = false
-            html.enabled = true
-        }
-    }
-
     testOptions {
         unitTests.all {
             jacoco {
