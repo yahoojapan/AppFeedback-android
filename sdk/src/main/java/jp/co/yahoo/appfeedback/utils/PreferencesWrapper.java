@@ -11,7 +11,7 @@ import android.content.SharedPreferences;
  *
  * Created by taicsuzu on 2016/09/21.
  */
-public class PreferencesWrapper {
+class PreferencesWrapper {
     private static final String DB  = "id_manager";
     private static final String ID_KEY = "id";
     private static final String RECORD_CONFIRMED_KEY = "record_confirm";

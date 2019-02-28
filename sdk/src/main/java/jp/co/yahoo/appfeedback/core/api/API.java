@@ -30,7 +30,7 @@ import javax.net.ssl.SSLContext;
  *
  * Created by taicsuzu on 2016/09/16.
  */
-abstract public class API {
+abstract class API {
     static final int SUCCESS = 0, FAILURE = -1;
 
     protected Context context;
@@ -42,7 +42,6 @@ abstract public class API {
     /**
      * HttpURLConnectionのOutputStreamに書き込む
      * @param out connectionのOutputStream
-     * @param t 入力オブジェクト
      * @throws IOException IOに異常発生時
      */
     abstract protected void writeToOutputStream(OutputStream out) throws IOException;
@@ -63,7 +62,6 @@ abstract public class API {
      * リクエストを実行
      * APIHandlerに結果を返す
      * @param handler APIHandler
-     * @param t 入力オブジェクト
      */
     @SuppressLint("StaticFieldLeak")
     public void executeAsync(final APIHandler handler) {

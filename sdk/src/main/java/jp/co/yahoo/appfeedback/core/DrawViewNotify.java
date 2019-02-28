@@ -7,7 +7,7 @@ import java.util.EventListener;
  *
  * Created by tsando on 2017/08/23.
  */
-public interface DrawViewNotify extends EventListener {
+interface DrawViewNotify extends EventListener {
     /**
      * スワイプが終了し、描画情報が更新された
      */

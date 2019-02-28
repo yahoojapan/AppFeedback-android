@@ -19,7 +19,7 @@ import java.util.LinkedList;
  *
  * Created by tsando on 2017/08/15.
  */
-public class DrawView extends View {
+class DrawView extends View {
     // 枠線の太さ
     private static final int STROKE_WIDTH = 5;
     // 枠線の描画情報

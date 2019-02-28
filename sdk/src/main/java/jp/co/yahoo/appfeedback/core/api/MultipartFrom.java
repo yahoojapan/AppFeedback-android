@@ -8,12 +8,12 @@ import java.util.Map;
  * Created by taicsuzu on 2017/10/31.
  */
 
-public class MultipartFrom {
+class MultipartFrom {
     protected static final String BOUNDARY = "AppFeedbackAndroidSDKBoundary";
     private HashMap<String, String> texts = new HashMap<>();
     private HashMap<String, Binary> binaries = new HashMap<>();
 
-    public class Binary {
+    class Binary {
         public byte[] bytes;
         public String contentType;
 

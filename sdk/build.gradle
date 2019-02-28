@@ -39,6 +39,10 @@ android {
         }
     }
 
+    sourceSets {
+        main.java.srcDirs += 'src/main/java'
+    }
+
     defaultPublishConfig "release"
 }
 
@@ -60,4 +64,14 @@ dependencies {
     archives "org.apache.maven.wagon:wagon-ssh-external:2.9"
 
     implementation 'com.android.support:support-v4:+'
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.sourceFiles
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
 }

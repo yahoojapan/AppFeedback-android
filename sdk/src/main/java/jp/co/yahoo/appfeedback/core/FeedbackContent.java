@@ -1,6 +1,6 @@
 package jp.co.yahoo.appfeedback.core;
 
-public class FeedbackContent {
+class FeedbackContent {
     public String title;
     public String message;
     public String account;
