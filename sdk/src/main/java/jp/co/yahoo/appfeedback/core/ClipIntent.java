@@ -12,7 +12,7 @@ import jp.co.yahoo.appfeedback.utils.PreferencesWrapper;
  * Created by taicsuzu on 2016/10/24.
  */
 
-public class ClipIntent extends Activity {
+class ClipIntent extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

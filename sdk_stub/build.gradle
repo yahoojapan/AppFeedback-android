@@ -29,8 +29,22 @@ android {
         }
     }
 
+    sourceSets {
+        main.java.srcDirs += 'src/main/java'
+    }
+
     defaultPublishConfig "release"
 }
 
 dependencies {
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.sourceFiles
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
 }

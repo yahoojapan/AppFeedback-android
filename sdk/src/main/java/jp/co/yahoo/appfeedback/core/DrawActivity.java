@@ -25,7 +25,7 @@ import static jp.co.yahoo.appfeedback.R.id.imageView;
  *
  * Created by tsando on 2017/08/15.
  */
-public class DrawActivity extends FragmentActivity implements DrawViewNotify {
+class DrawActivity extends FragmentActivity implements DrawViewNotify {
     private LinearLayout rootLayout;
     private LinearLayout drawViewLayout;
     private ImageView editImage;

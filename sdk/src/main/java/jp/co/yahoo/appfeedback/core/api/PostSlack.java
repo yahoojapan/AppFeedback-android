@@ -15,7 +15,7 @@ import jp.co.yahoo.appfeedback.utils.SDKInfo;
  *
  */
 
-public class PostSlack extends API {
+class PostSlack extends API {
     private final String apiUrl;
     private final String channel;
     private final String token;

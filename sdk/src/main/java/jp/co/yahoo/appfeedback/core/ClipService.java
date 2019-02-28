@@ -20,7 +20,7 @@ import jp.co.yahoo.appfeedback.views.TapViewParent;
  *
  * Created by taicsuzu on 2016/09/15.
  */
-public class ClipService extends Service {
+class ClipService extends Service {
     private static final int SEC = 1000;
     // 0.5秒ごとにアプリの状態をチェックする
     private static final int CHECK_INTERVAL = SEC/5;
