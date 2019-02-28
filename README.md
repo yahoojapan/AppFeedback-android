@@ -1,9 +1,10 @@
 ![](./assets/Logo.png)
-[![](https://jitpack.io/v/yahoojapan/AppFeedback-android.svg)](https://jitpack.io/#yahoojapan/AppFeedback-android)
-[![CircleCI](https://circleci.com/gh/yahoojapan/AppFeedback-android.svg?style=svg)](https://circleci.com/gh/yahoojapan/AppFeedback-android)
-[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](./LICENSE)
-[![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=21)
 
+[![](https://jitpack.io/v/yahoojapan/AppFeedback-android.svg)](https://jitpack.io/#yahoojapan/AppFeedback-android)
+(https://circleci.com/gh/yahoojapan/AppFeedback-android)
+[![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=21)
+[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](./LICENSE)
+[![CircleCI](https://circleci.com/gh/yahoojapan/AppFeedback-android.svg?style=svg)]
 # AppFeedback
 You can post feedback messages and screenshots to Slack from your Android app!
 
