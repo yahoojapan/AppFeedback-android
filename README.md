@@ -1,4 +1,6 @@
 ![](./assets/Logo.png)
+[![](https://jitpack.io/v/yahoojapan/AppFeedback-android.svg)](https://jitpack.io/#yahoojapan/AppFeedback-android)
+
 
 # AppFeedback
 You can post feedback messages and screenshots to Slack from your Android app!
@@ -19,7 +21,7 @@ Introducing this SDK, a floating icon of feedback is displayed. Tapping it, a fe
 
 ## Requirements
 
-- **Minimum SDK Version** - requires a minimum SDK version of 19 or higher
+- **Minimum SDK Version** - requires a minimum SDK version of 21 or higher
 - **Compile SDK Version** -  must be compiled against SDK version 27 or higher
 - **Support Library Version** - uses support library version 27.
 
@@ -27,33 +29,41 @@ Introducing this SDK, a floating icon of feedback is displayed. Tapping it, a fe
 
 ### Integrate SDK
 
-Open your module's build.gradle file.
-Add the following manifest placeholder to your configuration (typically the defaultConfig):
+**Step 1**. Add the JitPack repository to your build file:
 
 ```
-repositories {
-    jcenter()
-}
-
-dependencies {
-    debugCompile 'jp.co.yahoo.appfeedback:appfeedback-sdk:1.+:debug@aar'
-
-    // When using release build, SDK implementation is empty with same interface. 
-    // So it does not affect application behavier.
-    releaseCompile 'jp.co.yahoo.appfeedback:appfeedback-sdk:1.+:release@aar'
-}
+    allprojects {
+        repositories {
+            ...
+            maven { url 'https://jitpack.io' }
+        }
+    }
 ```
 
-This library uses **support-v4** library, you must add a dependency to your build.gradle .
+**Step 2**. Add the dependency:
 
+
+```
+    dependencies {
+        implementation 'com.github.taisukeh.AppFeedback-android:sdk:1.+'
+    }
+```
+
+In order to remove sdk code from your release bundle, use `sdk_stub` module. `sdk_stub` has same I/F with empty implementation.
+
+```
+    dependencies {
+        releaseImplementation 'com.github.taisukeh.AppFeedback-android:sdk_stub:1.+'
+    }
+```
 
 ### MainActivity
 
 Call `AppFeedback.start` in the MainActivity.
 
-```
+```java
 import jp.co.yahoo.appfeedback.core.AppFeedback;
-  
+
 public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
