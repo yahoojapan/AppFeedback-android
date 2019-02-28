@@ -1,2 +1,3 @@
 include ':sdk'
+include ':sdk_stub'
 include ':app'
