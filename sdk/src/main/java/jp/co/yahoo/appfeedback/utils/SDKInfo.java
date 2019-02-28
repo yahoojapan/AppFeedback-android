@@ -11,7 +11,7 @@ import android.os.Build;
  *
  * Created by taicsuzu on 2016/09/16.
  */
-class SDKInfo {
+public class SDKInfo {
     /**
      * アプリ名の取得
      * @param context Context

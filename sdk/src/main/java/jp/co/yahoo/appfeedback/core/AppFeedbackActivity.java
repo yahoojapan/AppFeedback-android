@@ -23,7 +23,7 @@ import android.support.v4.content.ContextCompat;
  * Created by taicsuzu on 2017/04/25.
  */
 
-class AppFeedbackActivity extends FragmentActivity {
+public class AppFeedbackActivity extends FragmentActivity {
     private static final int REQUEST_OL_PERMISSION = 10042;
     private static final int REQUEST_FL_PERMISSION = 10041;
     private static final int REQUEST_MP_PERMISSION = 10040;

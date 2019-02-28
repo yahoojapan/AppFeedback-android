@@ -51,7 +51,7 @@ import static jp.co.yahoo.appfeedback.R.id.edit_view;
  *
  * Created by taicsuzu on 2016/09/15.
  */
-class FeedbackActivity extends Activity {
+public class FeedbackActivity extends Activity {
     private class OutOfMemoryMediaContent extends Exception{}
 
     private static final int SELECT_SCREEN_SHOT = 1010;

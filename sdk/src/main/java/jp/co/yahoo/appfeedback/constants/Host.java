@@ -11,7 +11,7 @@ import jp.co.yahoo.appfeedback.R;
  *
  * Created by taicsuzu on 2016/09/20.
  */
-class Host {
+public class Host {
     private static ENV env = ENV.EXTERNAL;
     private static int devInstanceNum = 0;
 
