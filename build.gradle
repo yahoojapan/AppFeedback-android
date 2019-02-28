@@ -1,3 +1,10 @@
+ext {
+    sdk_compileSdkVersion = 27
+    sdk_buildToolsVersion = '28.0.3'
+    sdk_minSdkVersion = 21
+    sdk_targetSdkVersion = 27
+}
+
 buildscript {
     repositories {
         google()
@@ -25,5 +32,5 @@ task clean(type: Delete) {
 
 task assembleDebug(dependsOn: ':app:assembleDebug')
 task assembleRelease(dependsOn: ':app:assembleRelease')
-task uploadArchives(dependsOn: ':sdk:uploadArchives')
 task testDebugUnitTest(dependsOn: ':sdk:testDebugUnitTest')
+

@@ -6,20 +6,15 @@ apply plugin: 'com.github.dcendents.android-maven'
 group = 'com.github.USERNAME.REPO'
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion System.getenv('BUILD_TOOL_DEFAULT') ?: '28.0.3'
+    compileSdkVersion sdk_compileSdkVersion
+    buildToolsVersion sdk_buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 19
-        targetSdkVersion 27
+        minSdkVersion sdk_minSdkVersion
+        targetSdkVersion sdk_targetSdkVersion
         versionCode 1
         versionName "1.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
-        // trueだと ./gradlew :uploadArchives 以下のエラーが発生
-        // Could not write to file '..../sdk/build/poms/pom-default.xml'
-        // 解答 https://stackoverflow.com/questions/44405942/could-not-write-to-file-pom-xml-android
-        // multiDexEnabled false
     }
 
     dexOptions {
@@ -28,9 +23,6 @@ android {
 
     buildTypes {
         debug {
-            // jacocoがバグって起動しないため外す
-            // https://stackoverflow.com/questions/39195754/java-lang-noclassdeffounderror-failed-resolution-of-lorg-jacoco-agent-rt-inter
-            // testCoverageEnabled = true
         }
 
         release {
@@ -47,21 +39,18 @@ android {
         }
     }
 
-    // publishNonDefault は　Android gradle plugin 3.0 で deprecate された
-    // publishNonDefault true
-    defaultPublishConfig "debug"
+    defaultPublishConfig "release"
 }
 
 /** ---------------- 依存ライブラリ ----------- */
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    // サポートライブラリ
-    // ローカルユニットテスト用
+    // unit test
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.jmockit:jmockit:1.21'
     testImplementation 'org.powermock:powermock-module-junit4:1.6.5'
     testImplementation 'org.powermock:powermock-api-mockito:1.6.5'
-    // インストルメンテーションテスト用
+    // instrumental test
     androidTestImplementation 'junit:junit:4.12'
     androidTestImplementation 'org.mockito:mockito-core:2.7.5'
     androidTestImplementation 'com.google.dexmaker:dexmaker:1.2'
@@ -69,5 +58,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     // アーカイブ用
     archives "org.apache.maven.wagon:wagon-ssh-external:2.9"
-    debugImplementation 'com.android.support:support-v4:27.+'
+
+    implementation 'com.android.support:support-v4:27.+'
 }

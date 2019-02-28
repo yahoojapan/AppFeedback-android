@@ -15,7 +15,6 @@ public class AppFeedback {
      * @param slackChannel 投稿先のSlack Channel
      */
     public static void start(Activity activity, String slackChannel) {
-        // ここでは何もしない
     }
 
     /**
@@ -25,8 +24,7 @@ public class AppFeedback {
      * @param token Slack Token
      * @param slackChannel 投稿先の Channel ID
      */
-  public static void start(Activity activity, String token, String slackChannel) {
-        //ここでは何もしない
+    public static void start(Activity activity, String token, String slackChannel) {
     }
 
     /**
@@ -39,7 +37,5 @@ public class AppFeedback {
     /**
      * Set slack api url
      */
-    public static void setSlackexApiUrl(String apiUrl) {
-    }
-
+    public static void setSlackexApiUrl(String apiUrl) { }
 }

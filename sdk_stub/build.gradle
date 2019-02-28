@@ -1,0 +1,36 @@
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+apply plugin: 'jacoco'
+
+apply plugin: 'com.github.dcendents.android-maven'
+group = 'com.github.USERNAME.REPO'
+
+android {
+    compileSdkVersion sdk_compileSdkVersion
+    buildToolsVersion sdk_buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion sdk_minSdkVersion
+        targetSdkVersion sdk_targetSdkVersion
+        versionCode 1
+        versionName "1.0.0"
+    }
+
+    dexOptions {
+        preDexLibraries = false
+    }
+
+    buildTypes {
+        debug {
+        }
+
+        release {
+            minifyEnabled false
+        }
+    }
+
+    defaultPublishConfig "release"
+}
+
+dependencies {
+}
