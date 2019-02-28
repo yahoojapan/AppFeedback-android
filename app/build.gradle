@@ -3,12 +3,12 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
     }
-    compileSdkVersion 27
+    compileSdkVersion 28
     buildToolsVersion System.getenv('BUILD_TOOL_DEFAULT') ?: '28.0.3'
     defaultConfig {
         applicationId "jp.co.yahoo.appfeedback.sample"
-        minSdkVersion 19
-        targetSdkVersion 27
+        minSdkVersion 21
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
 

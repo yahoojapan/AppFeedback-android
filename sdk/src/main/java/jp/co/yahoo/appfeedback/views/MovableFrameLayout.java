@@ -13,7 +13,7 @@ import android.widget.FrameLayout;
  *
  * Created by taicsuzu on 2015/03/13.
  */
-class MovableFrameLayout extends FrameLayout {
+public class MovableFrameLayout extends FrameLayout {
     private WindowManager wm;
     private Point windowSize = new Point();
     private WindowManager.LayoutParams params;

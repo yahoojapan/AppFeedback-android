@@ -13,7 +13,7 @@ import jp.co.yahoo.appfeedback.R;
  * Created by taicsuzu on 2017/05/08.
  */
 
-class TapViewParent extends FloatingWindow implements View.OnTouchListener{
+public class TapViewParent extends FloatingWindow implements View.OnTouchListener{
 
     public TapViewParent(Context context) {
         super(context);

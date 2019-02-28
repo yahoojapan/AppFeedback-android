@@ -9,7 +9,7 @@ import android.os.Message;
  *
  * Created by taicsuzu on 2017/04/24.
  */
-class SecCounter {
+public class SecCounter {
     private final static int MAX = 300;
     private Thread thread;
     private Handler handler;

@@ -10,7 +10,7 @@ import android.view.WindowManager;
  *
  * Created by taicsuzu on 2015/08/02.
  */
-abstract class FloatingWindow {
+abstract public class FloatingWindow {
     private View view;
     private Context context;
     private LayoutInflater layoutInflater;

@@ -9,7 +9,7 @@ import android.os.Build;
 
 import static android.content.Context.NOTIFICATION_SERVICE;
 
-class NotificationHelper {
+public class NotificationHelper {
     private static final String CHANNEL_ID = "appfeedback";
     private NotificationManager notificationManager;
 

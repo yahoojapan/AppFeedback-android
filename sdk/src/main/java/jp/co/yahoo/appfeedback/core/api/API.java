@@ -30,7 +30,7 @@ import javax.net.ssl.SSLContext;
  *
  * Created by taicsuzu on 2016/09/16.
  */
-abstract class API {
+abstract public class API {
     static final int SUCCESS = 0, FAILURE = -1;
 
     protected Context context;

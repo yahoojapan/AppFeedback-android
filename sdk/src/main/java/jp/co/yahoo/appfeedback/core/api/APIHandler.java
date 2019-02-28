@@ -16,7 +16,7 @@ import jp.co.yahoo.appfeedback.R;
  *
  * Created by taicsuzu on 2017/04/20.
  */
-abstract class APIHandler extends Handler {
+abstract public class APIHandler extends Handler {
     protected static final int SUCCESS = API.SUCCESS, FAILURE = API.FAILURE;
     protected Context context;
 
