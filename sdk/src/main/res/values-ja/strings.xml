@@ -24,6 +24,8 @@
     <string name="appfeedback_feedback_screen_record_show_tap_view">タップ位置の表示</string>
     <string name="appfeedback_feedback_send_id_on">アカウント名の送信</string>
     <string name="appfeedback_feedback_edit_image">画像編集</string>
+    <string name="appfeedback_feedback_sending_message">送信中...</string>
+
 
     <string name="appfeedback_feedback_slack_channel">%sに送信しました</string>
     <string name="appfeedback_feedback_slack_error">Slack API Error: %s</string>

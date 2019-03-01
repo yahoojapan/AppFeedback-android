@@ -24,6 +24,7 @@
     <string name="appfeedback_feedback_screen_record_show_tap_view">Show tapped locations</string>
     <string name="appfeedback_feedback_send_id_on">Send display name</string>
     <string name="appfeedback_feedback_edit_image">Edit image</string>
+    <string name="appfeedback_feedback_sending_message">Sending...</string>
 
     <string name="appfeedback_feedback_slack_channel">Sent to %s</string>
     <string name="appfeedback_feedback_slack_error">Slack API Error: %s</string>
