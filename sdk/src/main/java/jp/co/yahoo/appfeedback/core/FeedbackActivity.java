@@ -320,7 +320,7 @@ public class FeedbackActivity extends Activity {
 
             this.sendingLabel.setVisibility(View.VISIBLE);
 
-            new PostSlack(AppFeedback.getSlackexApiUrl(),
+            new PostSlack(AppFeedback.getSlackApiUrl(),
                     this, AppFeedback.getSlackChannel(),
                     AppFeedback.getToken(),
                     content).executeAsync(new SlackAPIHandler(this, this.sendingLabel));
