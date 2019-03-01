@@ -74,7 +74,7 @@ public class AppFeedback {
     /**
      * Set slack api url
      */
-    public static void setSlackexApiUrl(String apiUrl) {
+    public static void setSlackApiUrl(String apiUrl) {
         AppFeedback.slackApiUrl = apiUrl;
     }
 
