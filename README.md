@@ -48,7 +48,7 @@ Introducing this SDK, a floating icon of feedback is displayed. Tapping it, a fe
 
 ```
     dependencies {
-        implementation 'com.github.taisukeh.AppFeedback-android:sdk:1.+'
+        implementation 'com.github.yahoojapan.AppFeedback-android:sdk:1.+'
     }
 ```
 
@@ -56,7 +56,7 @@ In order to remove sdk code from your release bundle, use `sdk_stub` module. `sd
 
 ```
     dependencies {
-        releaseImplementation 'com.github.taisukeh.AppFeedback-android:sdk_stub:1.+'
+        releaseImplementation 'com.github.yahoojapan.AppFeedback-android:sdk_stub:1.+'
     }
 ```
 
