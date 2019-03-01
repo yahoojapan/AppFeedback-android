@@ -30,7 +30,7 @@ public class AppFeedback {
     /**
      * Set slack api url
      */
-    public static String getSlackexApiUrl() {
+    public static String getSlackApiUrl() {
         return "";
     }
 
