@@ -129,39 +129,46 @@ abstract public class API {
             protected void onPostExecute(JSONObject json) {
 
                 try {
-                    if(json != null) {
+                    if (json != null) {
 
                         Message msg = new Message();
 
                         int code = json.getInt("code");
 
-                        if(code == 200) {
+                        if (code == 200) {
                             msg.what = SUCCESS;
                             msg.obj = json.getJSONObject("result");
-                        }else{
+                        } else {
                             msg.what = FAILURE;
                         }
 
                         msg.arg1 = code;
 
-                        if(handler != null)
+                        if (handler != null)
                             handler.sendMessage(msg);
 
-                    }else{
+                    } else {
 
                         Message msg = new Message();
                         msg.what = FAILURE;
                         msg.obj = null;
 
-                        if(handler != null)
+                        if (handler != null)
                             handler.sendMessage(msg);
                     }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
+
+                    Message msg = new Message();
+                    msg.what = FAILURE;
+                    msg.obj = null;
+
+                    if (handler != null) {
+                        handler.sendMessage(msg);
+                    }
                 }
             }
-
         }.execute();
     }
 

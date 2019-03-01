@@ -22,8 +22,8 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical|center_horizontal"
             android:orientation="horizontal"
-            android:paddingBottom="12dp"
-            android:paddingTop="12dp">
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -59,9 +59,9 @@
                     style="@style/appfeedback_text_box"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
                     android:hint="@string/appfeedback_feedback_title"
                     android:inputType="text"
                     android:lines="1" />
@@ -71,9 +71,9 @@
                     style="@style/appfeedback_text_box"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
                     android:hint="@string/appfeedback_feedback_comment"
                     android:minHeight="80dp" />
 
@@ -160,8 +160,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:layout_marginBottom="20dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="20dp"
                             android:text="@string/appfeedback_feedback_screenshot"
                             android:textColor="@color/appfeedback_light_gray"
                             android:textSize="12sp" />
@@ -279,6 +279,13 @@
                                 android:textSize="14sp" />
 
                         </FrameLayout>
+
+                        <TextView
+                            android:id="@+id/sending_label"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Sending..." />
+
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>

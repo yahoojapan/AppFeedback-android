@@ -67,6 +67,7 @@ public class FeedbackActivity extends Activity {
     private TextView emptyScreenshot;
     private ImageButton removeScreenshot;
     private FrameLayout editButton;
+    private TextView sendingLabel;
 
     private ImageView editedImage;
 
@@ -109,6 +110,9 @@ public class FeedbackActivity extends Activity {
         comment = (EditText) findViewById(R.id.appfeedback_feedback_comment);
         username = (EditText) findViewById(R.id.appfeedback_feedback_username);
         username.setText(preferencesWrapper.getId());
+        sendingLabel = (TextView)findViewById(R.id.sending_label);
+        sendingLabel.setText(R.string.appfeedback_feedback_sending_message);
+        sendingLabel.setVisibility(View.INVISIBLE);
 
         if (Build.VERSION.SDK_INT >= 21) {
             screenShot = ScreenShot.getInstance();
@@ -314,7 +318,12 @@ public class FeedbackActivity extends Activity {
                 content.screenshot = byteArrayOutputStream.toByteArray();
             }
 
-            new PostSlack(AppFeedback.getSlackexApiUrl(), this, AppFeedback.getSlackChannel(), AppFeedback.getToken(), content).executeAsync(new SlackAPIHandler(this));
+            this.sendingLabel.setVisibility(View.VISIBLE);
+
+            new PostSlack(AppFeedback.getSlackexApiUrl(),
+                    this, AppFeedback.getSlackChannel(),
+                    AppFeedback.getToken(),
+                    content).executeAsync(new SlackAPIHandler(this, this.sendingLabel));
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -535,13 +544,17 @@ public class FeedbackActivity extends Activity {
     }
 
     class SlackAPIHandler extends APIHandler {
+        TextView sendingLabel;
 
-        protected SlackAPIHandler(Context context) {
+        protected SlackAPIHandler(Context context, TextView sendingLabel) {
             super(context);
+            this.sendingLabel = sendingLabel;
         }
 
         @Override
         public void handleJson(int apiResult, int statusCode, @Nullable JSONObject json) {
+            this.sendingLabel.setVisibility(View.INVISIBLE);
+
             try {
                 if (apiResult == SUCCESS && json != null && !json.isNull("ok")) {
                     if (json.getBoolean("ok")) {
