@@ -38,7 +38,6 @@ public class AppFeedback {
     /**
      * AppFeedbackSDKを初期化するための関数<br>
      * アプリが最初に立ち上げるActivity内で呼び出す<br>
-     * 詳しいドキュメントは<a href="http://cptl.corp.yahoo.co.jp/pages/viewpage.action?pageId=1175959217">ここに</a>
      * @param activity SDKを初期化するActivity
      * @param token Slack Token
      * @param slackChannel 投稿先の Channel ID
