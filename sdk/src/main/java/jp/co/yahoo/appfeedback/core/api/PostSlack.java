@@ -96,7 +96,7 @@ public class PostSlack extends API {
         comment.append("\n");
 
         comment.append("[Device]\n");
-        comment.append("Model:Api " + SDKInfo.getDeviceModel() + "\n");
+        comment.append("Model: " + SDKInfo.getDeviceModel() + "\n");
         comment.append("Version: " + SDKInfo.getDeviceVersion() + "\n");
 
         comment.append("```");
