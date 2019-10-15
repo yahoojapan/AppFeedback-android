@@ -13,7 +13,6 @@ import org.powermock.modules.junit4.PowerMockRunner;
 
 import jp.co.yahoo.appfeedback.R;
 import jp.co.yahoo.appfeedback.TestUtil;
-import jp.co.yahoo.appfeedback.constants.Host;
 
 import static org.junit.Assert.assertEquals;
 import static org.powermock.api.mockito.PowerMockito.doNothing;
@@ -31,19 +30,6 @@ import static org.powermock.api.mockito.PowerMockito.whenNew;
 public class AppFeedbackTest {
 
     AppFeedbackContext appFeedbackContext;
-
-    /**
-     * Mock化したContext
-     * @return
-     */
-    private Context mockContext() {
-        Context mockContext = mock(Context.class);
-        doReturn("dev-%d").when(mockContext).getString(R.string.appfeedback_api_dev);
-        doReturn("alpha").when(mockContext).getString(R.string.appfeedback_api_alpha);
-        doReturn("internal").when(mockContext).getString(R.string.appfeedback_api_internal);
-        doReturn("external").when(mockContext).getString(R.string.appfeedback_api_external);
-        return mockContext;
-    }
 
     /**
      * Mock化したMediaProjection

@@ -3,8 +3,6 @@ package jp.co.yahoo.appfeedback.core;
 import android.app.Activity;
 import android.content.Intent;
 
-import jp.co.yahoo.appfeedback.constants.Host;
-
 /**
  * ユーザーが使用するインターフェース<br>
  *  - AppFeedbackのIDとTokenの保持<br>

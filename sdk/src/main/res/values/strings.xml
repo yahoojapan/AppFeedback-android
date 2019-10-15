@@ -1,11 +1,6 @@
 <resources>
     <string name="appfeedback_app_name">Appfeedback SDK</string>
 
-    <string name="appfeedback_api_dev">http://dev-api-%d.appfeedback.dev01.ssk.cfm.yahoo.co.jp/</string>
-    <string name="appfeedback_api_alpha">https://api-alpha.appfeedback.corp.yahoo.co.jp/</string>
-    <string name="appfeedback_api_internal">https://api.appfeedback.corp.yahoo.co.jp/</string>
-    <string name="appfeedback_api_external">https://api-appfeedback.yahoo.co.jp/</string>
-
     <string name="appfeedback_feedback">Feedback</string>
     <string name="appfeedback_feedback_recording">Screen recording</string>
     <string name="appfeedback_feedback_description">Feedback</string>
