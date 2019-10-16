@@ -13,7 +13,6 @@ import org.powermock.modules.junit4.PowerMockRunner;
 
 import jp.co.yahoo.appfeedback.R;
 import jp.co.yahoo.appfeedback.TestUtil;
-import jp.co.yahoo.appfeedback.constants.Host;
 
 import static org.junit.Assert.assertEquals;
 import static org.powermock.api.mockito.PowerMockito.doNothing;
